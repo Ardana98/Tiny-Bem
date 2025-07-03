@@ -1,0 +1,563 @@
+/* ===================================== */
+/* === 1. VARIABLES CSS (CUSTOM PROPERTIES) === */
+/* ===================================== */
+:root {
+    /* Colores */
+    --color-light-beige: #d5cfc3; /* Fondo principal suave */
+    --color-dark-gray: #33321A; /* Para texto principal y elementos fuertes (ajuste de #67663 para mayor contraste) */
+    --color-medium-gray: #a1998f; /* Texto secundario, bordes */
+    --color-very-light-beige: #efede6; /* Fondo alternativo, cards */
+    --color-white-off: #fafaf8; /* Blanco hueso, para elementos que necesitan resaltar */
+
+    /* Tipografía */
+    --font-family-base: 'Arial', sans-serif; /* puedo buscar una  fuente minimalista de Google Fonts si alcanzo */
+    --font-family-headings: 'Helvetica Neue', sans-serif; /* Sugerencia para encabezados */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-small: 0.875rem; /* 14px */
+    --font-size-medium: 1.125rem; /* 18px */
+    --font-size-large: 1.25rem; /* 20px */
+    --font-size-h1: 3rem; /* 48px */
+    --font-size-h2: 2.25rem; /* 36px */
+    --font-size-h3: 1.75rem; /* 28px */
+
+    /* Espaciado */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-small: 1rem;    /* 16px */
+    --spacing-medium: 1.5rem;   /* 24px */
+    --spacing-large: 2rem;    /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+    --spacing-xxl: 4rem;    /* 64px */
+
+    /* Sombras */
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================== */
+/* === 2. RESET BÁSICO === */
+/* ===================================== */
+*, *::before, *::after {
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-dark-gray);
+    background-color: var(--color-light-beige); /* Fondo principal de la página */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de las imágenes */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del padre por defecto */
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===================================== */
+/* === 3. UTILIDADES Y LAYOUT GENERAL === */
+/* ===================================== */
+
+/* Bloque: Container (para centrar contenido) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-medium); /* Espaciado lateral */
+}
+
+/* Bloque: Button (ejemplo de estilo general de botón) */
+.button {
+    display: inline-block;
+    padding: var(--spacing-small) var(--spacing-large);
+    background-color: var(--color-dark-gray);
+    color: var(--color-white-off);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #55542C; /* Un tono un poco más oscuro al hacer hover */
+}
+
+/* ===================================== */
+/* === 4. ESTILOS DE BLOQUES PRINCIPALES (BEM) === */
+/* ===================================== */
+
+/* Bloque: Header */
+.header {
+    background-color: var(--color-white-off);
+    padding: var(--spacing-small) 0;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo-img {
+    height: 40px; /* Ajusta según el tamaño de tu logo */
+}
+
+/* Elemento: Botón de menú hamburguesa (oculto en desktop) */
+.header__toggle {
+    display: none; /* Oculto por defecto en desktop */
+    background: none;
+    border: none;
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    color: var(--color-dark-gray);
+    padding: var(--spacing-xs);
+}
+
+.header__toggle-icon {
+    /* Puedeo usar un SVG o un div con before/after para crear el icono de hamburguesa */
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-dark-gray);
+    position: relative;
+}
+
+.header__toggle-icon::before,
+.header__toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-gray);
+    transition: transform 0.3s ease;
+}
+
+.header__toggle-icon::before {
+    top: -8px;
+}
+
+.header__toggle-icon::after {
+    top: 8px;
+}
+
+/* Bloque: Navegación (visible en desktop) */
+.nav__list {
+    display: flex;
+    gap: var(--spacing-large);
+}
+
+.nav__link {
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    padding: var(--spacing-xs);
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+    color: var(--color-medium-gray);
+}
+
+/* Modificador: Enlace activo */
+.nav__link--active {
+    color: var(--color-medium-gray);
+    border-bottom: 2px solid var(--color-medium-gray);
+}
+
+
+/* Bloque: About Section (Article) */
+.about-section {
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.about-section__title {
+    font-size: var(--font-size-h1);
+    font-family: var(--font-family-headings);
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-large);
+}
+
+.about-section__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section__text {
+    font-size: var(--font-size-medium);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-medium);
+    color: var(--color-dark-gray);
+}
+
+.about-section__image {
+    width: 100%; /* Asegura que la imagen se adapte al ancho del contenedor */
+    height: auto;
+    max-height: 500px; /* Limita la altura para imágenes muy grandes */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio */
+    border-radius: 8px;
+    margin-top: var(--spacing-xl);
+}
+
+/* Bloque: Promo Banner */
+.promo-banner {
+    background-image: url('../img/promo-banner-bg.jpg'); /* Asegúrate de tener esta imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; /* Necesario para el overlay */
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    color: var(--color-white-off); /* Color del texto sobre la imagen oscura */
+    z-index: 0; /* Asegura que el overlay se superponga correctamente */
+}
+
+/* Pseudo-elemento para el overlay oscuro/transparente */
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay negro con 40% de opacidad */
+    z-index: 1; /* Por encima de la imagen, por debajo del contenido */
+}
+
+.promo-banner > .container { /* Asegura que el contenido esté sobre el overlay */
+    position: relative;
+    z-index: 2;
+}
+
+.promo-banner__title {
+    font-size: var(--font-size-h2);
+    font-family: var(--font-family-headings);
+    margin-bottom: var(--spacing-xl);
+}
+
+.promo-banner__cards-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cards se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: var(--spacing-large);
+}
+
+.promo-banner__card {
+    background-color: var(--color-white-off); /* Fondo blanco hueso para las cards */
+    color: var(--color-dark-gray); /* Texto oscuro para las cards */
+    padding: var(--spacing-large);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    flex: 1; /* Permite que las cards crezcan */
+    min-width: 280px; /* Ancho mínimo para que no se hagan demasiado pequeñas */
+    max-width: 350px; /* Ancho máximo para mantenerlas manejables */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.promo-banner__card:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
+}
+
+.promo-banner__card-icon {
+    width: 60px; /* Tamaño del icono */
+    height: 60px;
+    margin: 0 auto var(--spacing-small); /* Centra el icono */
+}
+
+.promo-banner__card-title {
+    font-size: var(--font-size-h3);
+    margin-bottom: var(--spacing-xs);
+}
+
+.promo-banner__card-text {
+    font-size: var(--font-size-base);
+}
+
+/* Bloque: Gallery Section */
+.gallery-section {
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.gallery-section__title {
+    font-size: var(--font-size-h2);
+    font-family: var(--font-family-headings);
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-medium);
+}
+
+.gallery-section__description {
+    font-size: var(--font-size-large);
+    color: var(--color-medium-gray);
+    margin-bottom: var(--spacing-xl);
+}
+
+
+/* Bloque: Contact Section */
+.contact-section {
+    background-color: var(--color-very-light-beige); /* Fondo ligeramente diferente */
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.contact-section__title {
+    font-size: var(--font-size-h2);
+    font-family: var(--font-family-headings);
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-large);
+}
+
+.contact-section__text {
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--spacing-medium);
+    color: var(--color-dark-gray);
+}
+
+.contact-section__info {
+    font-size: var(--font-size-medium);
+    color: var(--color-medium-gray);
+    margin-bottom: var(--spacing-xs);
+}
+
+
+/* Bloque: Footer */
+.footer {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white-off);
+    padding: var(--spacing-large) 0;
+    font-size: var(--font-size-small);
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium);
+}
+
+.footer__text {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer__social {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.footer__social-link {
+    transition: opacity 0.3s ease;
+}
+
+.footer__social-link:hover {
+    opacity: 0.8;
+}
+
+.footer__social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* ===================================== */
+/* === 5. ESTILOS DE MODAL (BEM) === */
+/* ===================================== */
+
+/* Bloque: Gallery Modal */
+.gallery-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    display: flex; /* Usamos flex para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    opacity: 0; /* Para la transición de entrada/salida */
+    visibility: hidden; /* Para la transición de entrada/salida */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Modificador: Activo (visible) */
+.gallery-modal--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gallery-modal__content {
+    background-color: var(--color-white-off);
+    padding: var(--spacing-large);
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto; /* Para desplazamiento si el contenido es grande */
+    position: relative;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-modal__close {
+    position: absolute;
+    top: var(--spacing-small);
+    right: var(--spacing-small);
+    background: none;
+    border: none;
+    font-size: var(--font-size-h2);
+    color: var(--color-dark-gray);
+    cursor: pointer;
+    line-height: 1;
+    padding: var(--spacing-xs);
+    transition: color 0.2s ease;
+}
+
+.gallery-modal__close:hover {
+    color: var(--color-medium-gray);
+}
+
+.gallery-modal__image {
+    max-width: 100%;
+    height: auto;
+    max-height: 60vh; /* Limita la altura de la imagen principal del modal */
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    margin-bottom: var(--spacing-medium);
+}
+
+.gallery-modal__controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
+}
+
+.gallery-modal__prev,
+.gallery-modal__next {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white-off);
+    border: none;
+    border-radius: 50%; /* Botones circulares */
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-modal__prev:hover,
+.gallery-modal__next:hover {
+    background-color: #55542C;
+}
+
+.gallery-modal__thumbnail-list {
+    display: flex;
+    gap: var(--spacing-small);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-small);
+}
+
+.gallery-modal__thumbnail-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Modificador: Miniatura seleccionada */
+.gallery-modal__thumbnail-img--selected {
+    border-color: var(--color-dark-gray);
+    transform: scale(1.05);
+}
+
+.gallery-modal__thumbnail-img:hover {
+    border-color: var(--color-medium-gray);
+}
+
+
+/* ===================================== */
+/* === 6. RESPONSIVIDAD BÁSICA === */
+/* ===================================== */
+
+@media (max-width: 768px) {
+    /* Header: Oculta el menú y muestra el botón de hamburguesa */
+    .header__toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    .nav {
+        position: fixed;
+        top: 0; /* Ajustar según la altura de tu header */
+        right: -300px; /* Oculta el menú fuera de la pantalla */
+        width: 250px; /* Ancho del menú lateral */
+        height: 100vh;
+        background-color: var(--color-white-off);
+        padding-top: var(--spacing-xxl); /* Espacio para el contenido */
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 999; /* Por debajo del modal, pero por encima del contenido */
+    }
+
+    .nav--open { /* Modificador para mostrar el menú lateral */
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column; /* Apila los elementos del menú */
+        align-items: center;
+        gap: var(--spacing-medium);
+    }
+
+    .nav__link {
+        font-size: var(--font-size-large);
+        padding: var(--spacing-small);
+    }
+
+    /* Ajustes para otras secciones en móvil */
+    .about-section__title,
+    .promo-banner__title,
+    .gallery-section__title,
+    .contact-section__title {
+        font-size: var(--font-size-h2); /* Reduce el tamaño de los títulos en móvil */
+    }
+
+    .promo-banner__cards-wrapper {
+        flex-direction: column; /* Apila las cards en móvil */
+        align-items: center;
+    }
+
+    .promo-banner__card {
+        max-width: 90%; /* Ajusta el ancho de las cards en móvil */
+    }
+
+    .footer__container {
+        align-items: center;
+    }
+}
