@@ -14,7 +14,7 @@ Este es un proyecto web de ejemplo que simula una página de "Tiny House", desar
 * **Fuentes Personalizadas:** Uso de fuentes de Google Fonts para mejorar la tipografía del sitio.
 
 ## Estructura del Proyecto
-Tiny-Bem/
+```Tiny-Bem/
 ├── assets/
 │   ├── css/
 │   │   └── style.css
@@ -23,7 +23,7 @@ Tiny-Bem/
 │   └── js/
 │       └── main.js
 ├── index.html
-└── README.md
+└── README.md```
 
 ## Cómo Ver el Proyecto
 
