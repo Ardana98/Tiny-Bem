@@ -118,7 +118,7 @@ ul {
 }
 
 .header__logo-img {
-    height: 40px; /* Ajusta según el tamaño de tu logo */
+    height: 100px; /* Ajusta según el tamaño de tu logo */
 }
 
 /* Elemento: Botón de menú hamburguesa (oculto en desktop) */
@@ -191,7 +191,7 @@ ul {
 
 .about-section__title {
     font-size: var(--font-size-h1);
-    font-family: var(--font-family-headings);
+    font-family: 'Playfair Display', serif; /* Fuente serif para un toque elegante */
     color: var(--color-dark-gray);
     margin-bottom: var(--spacing-large);
 }
@@ -219,7 +219,7 @@ ul {
 
 /* Bloque: Promo Banner */
 .promo-banner {
-    background-image: url('../img/promo-banner-bg.jpg'); /* Asegúrate de tener esta imagen */
+    background-image: url('../img/banner.jpg'); /* Asegúrate de tener esta imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -307,7 +307,7 @@ ul {
 
 .gallery-section__description {
     font-size: var(--font-size-large);
-    color: var(--color-medium-gray);
+    color: var(--color-dark-gray);
     margin-bottom: var(--spacing-xl);
 }
 
@@ -334,7 +334,7 @@ ul {
 
 .contact-section__info {
     font-size: var(--font-size-medium);
-    color: var(--color-medium-gray);
+    color: var(--color-dark-gray);
     margin-bottom: var(--spacing-xs);
 }
 
