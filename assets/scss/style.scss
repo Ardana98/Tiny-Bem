@@ -1,0 +1,54 @@
+// 1. Abstracts (Variables, Mixins, Functions)
+// Aquí importamos tus variables que acabamos de definir
+@use 'abstracts/variables';
+
+// 2. Base (Resets, tipografía global, estilos base de HTML, .container)
+// Importamos el reset CSS
+@use 'base/reset';
+// Importamos los estilos de tipografía global
+@use 'base/typography';
+// Importamos los estilos base del body y el .container
+@use 'base/base';
+
+
+// 3. Layout (Estructura principal: header, footer, grid, etc.)
+// Importamos los estilos del header
+@use 'layout/header';
+// Importamos los estilos de navegación
+@use 'layout/navigation';
+// Importamos los estilos del footer
+@use 'layout/footer';
+
+// 4. Components (Componentes reutilizables: botones, tarjetas, formularios, etc.)
+// Importamos los estilos de los botones
+@use 'components/button';
+@use 'components/gallery-modal'; 
+@use 'components/about'; 
+@use 'components/promo';
+@use 'components/gallery';
+@use 'components/contact';
+
+// 5. Pages (Estilos específicos de una página particular - vacío por ahora)
+
+// 6. Themes (para temas de color, oscuro/claro, etc. - vacío por ahora)
+
+// 7. Vendors (Estilos de librerías externas - vacío por ahora)
+
+
+// === 8. MEDIA QUERIES y RESPONSIVIDAD (AL FINAL) ===
+// Es crucial que esto se importe DESPUÉS de todos los estilos de desktop
+@use 'base/responsive'; // <--- ¡Mueve esta importación al final!
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+// assets/scss/components/_button.scss
+
+// Importa las variables de abstracts
+@use '../abstracts/variables'; // Importación para acceder a las variables
+
+/* Bloque: Botón Genérico */
+.button {
+    display: inline-block;
+    padding: variables.$spacing-medium variables.$spacing-large;
+    background-color: variables.$color-dark-gray;
+    color: variables.$color-white-off;
+    text-align: center;
+    text-decoration: none;
+    border-radius: variables.$border-radius-small;
+    font-size: variables.$font-size-medium;
+    cursor: pointer;
+    border: none;
+    transition: background-color variables.$transition-speed variables.$transition-ease, 
+                transform variables.$transition-speed variables.$transition-ease;
+}
+
+.button:hover {
+    background-color: #55542C; /* Un tono un poco más claro/diferente de dark-gray */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+.button:active {
+    transform: translateY(0); /* Vuelve a su posición original al hacer click */
+}

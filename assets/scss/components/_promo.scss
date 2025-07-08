@@ -1,0 +1,49 @@
+// assets/scss/sections/_promo.scss
+
+@use '../abstracts/variables';
+
+/* Bloque: Promo Banner (Optimiza tu Vida) */
+.promo-banner {
+    padding: variables.$spacing-xx-large 0;
+    text-align: center;
+    background-color: variables.$color-light-beige;
+}
+
+.promo-banner__title {
+    font-family: variables.$font-family-headings;
+    font-size: variables.$font-size-h1;
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-large;
+}
+
+.promo-banner__cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: variables.$spacing-large;
+    flex-wrap: wrap; /* Para que las tarjetas se envuelvan en pantallas pequeñas */
+}
+
+.promo-banner__card {
+    background-color: variables.$color-white-off;
+    padding: variables.$spacing-large;
+    border-radius: variables.$border-radius-medium;
+    box-shadow: variables.$shadow-light;
+    max-width: 350px;
+    text-align: left;
+}
+
+.promo-banner__card-icon {
+    max-width: 80px;
+    margin-bottom: variables.$spacing-medium;
+}
+
+.promo-banner__card-title {
+    font-size: variables.$font-size-large;
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-small;
+}
+
+.promo-banner__card-description {
+    font-size: variables.$font-size-medium;
+    color: variables.$color-medium-gray;
+}

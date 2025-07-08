@@ -1,0 +1,25 @@
+// assets/scss/sections/_about.scss
+
+@use '../abstracts/variables';
+
+/* Bloque: About Section (Acerca del Proyecto) */
+.about-section {
+    padding: variables.$spacing-xx-large 0;
+    background-color: variables.$color-very-light-beige;
+    text-align: center;
+}
+
+.about-section__title {
+    font-family: variables.$font-family-headings;
+    font-size: variables.$font-size-h2;
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-medium;
+}
+
+.about-section__content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: variables.$font-size-medium;
+    color: variables.$color-dark-gray;
+    line-height: 1.8;
+}

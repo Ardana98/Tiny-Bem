@@ -1,0 +1,47 @@
+
+@use '../abstracts/variables';
+// assets/scss/base/_reset.scss
+
+/* * Reset CSS muy básico y configuración de box-sizing global.
+ * Esto asegura que todos los elementos calculen su tamaño de forma consistente
+ * (padding y border se incluyen dentro del ancho/alto).
+ */
+html {
+    box-sizing: border-box; // Define el modelo de caja en la raíz
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; // Todos los elementos heredan el modelo de caja del html
+    margin: 0;           // Elimina márgenes por defecto
+    padding: 0;          // Elimina paddings por defecto
+}
+
+/* Eliminar la decoración de enlaces y los estilos de lista por defecto */
+a {
+    text-decoration: none; // Elimina el subrayado de los enlaces
+    color: inherit;        // Hereda el color del texto de su elemento padre
+}
+
+ul, ol {
+    list-style: none; // Elimina los puntos o números de las listas
+    margin: 0;        // Asegura que no haya márgenes adicionales
+    padding: 0;       // Asegura que no haya paddings adicionales
+}
+
+/* Hacer que las imágenes sean responsivas por defecto */
+img {
+    max-width: 100%; // Asegura que la imagen no se desborde de su contenedor
+    height: auto;    // Mantiene la proporción de la imagen
+    display: block;  // Elimina el espacio extra que a veces aparece debajo de las imágenes (como si fueran texto)
+}
+
+/* Elementos de formulario básicos para consistencia */
+button, input, select, textarea {
+    font-family: inherit; // Hereda la fuente del body
+    font-size: inherit;   // Hereda el tamaño de fuente
+    line-height: inherit; // Hereda la altura de línea
+}
+
+textarea {
+    resize: vertical; // Permite que los textareas se redimensionen solo verticalmente
+}

@@ -1,0 +1,71 @@
+// assets/scss/layout/_footer.scss
+
+@use '../abstracts/variables';
+
+/* Bloque: Footer */
+.footer {
+    background-color: variables.$color-dark-gray;
+    color: variables.$color-white-off;
+    padding: variables.$spacing-large 0;
+    font-size: variables.$font-size-small; // <-- Corregido según CSS original
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column; // <-- Corregido según CSS original
+    align-items: center; // <-- Corregido según CSS original
+    gap: variables.$spacing-medium;
+    justify-content: center; // Para centrar los elementos cuando están en columna.
+    
+    // Media query para el footer en mobile
+    @media (min-width: variables.$breakpoint-medium) { // A partir de escritorio, los elementos van separados
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: variables.$spacing-medium; // Puedes ajustar el gap para desktop si quieres uno diferente
+    }
+}
+
+
+/*
+.footer__contact-info {
+    // Si necesito estilos específicos para este div
+}
+*/
+
+.footer__logo-img { // Si tengo un logo en el footer
+    max-height: 40px;
+}
+
+.footer__text { // Para los párrafos de texto como el copyright y el contacto
+    margin-bottom: variables.$spacing-x-small; // <-- Corregido CSS original (0.5rem)
+}
+
+.footer__social { // Si es el contenedor general de los enlaces sociales
+    display: flex;
+    gap: variables.$spacing-medium;
+    // Si tenía un margin-top en el original para móvil, y quiero que se aplique sólo en móvil:
+    // @media (max-width: variables.$breakpoint-medium) {
+    //     margin-top: variables.$spacing-medium;
+    // }
+}
+
+.footer__social-link {
+    transition: opacity variables.$transition-speed variables.$transition-ease;
+}
+
+.footer__social-link:hover {
+    opacity: 0.8;
+}
+
+.footer__social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.footer__copy {
+    width: 100%; /* Para que ocupe toda la línea en móvil */
+    margin-top: variables.$spacing-medium;
+    font-size: variables.$font-size-small;
+    color: variables.$color-medium-gray;
+}

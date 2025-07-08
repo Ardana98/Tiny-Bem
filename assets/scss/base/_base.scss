@@ -1,0 +1,20 @@
+
+@use '../abstracts/variables';
+
+body {
+    background-color: variables.$color-light-beige; /* Fondo principal de la página */
+
+    /* Si tengo un "sticky footer" o layout de página completa con flexbox, estas líneas van aquí: */
+    /*
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    */
+}
+
+/* Bloque: Container (para centrar contenido) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 variables.$spacing-medium; /* Espaciado lateral usando la nueva variable */
+}

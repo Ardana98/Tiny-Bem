@@ -1,0 +1,37 @@
+
+@use '../abstracts/variables';
+// assets/scss/base/_typography.scss
+
+body {
+    font-family: variables.$font-family-base; // Usa la variable de fuente base
+    font-size: variables.$font-size-base;     // Usa el tamaño de fuente base
+    line-height: 1.6;                         // Altura de línea para legibilidad
+    color: variables.$color-dark-gray;        // Color de texto principal
+}
+
+// Estilos de encabezados
+h1 {
+    font-size: variables.$font-size-h1;
+    font-family: 'Playfair Display', serif; // Fuente específica para h1 (de tu .about-section__title)
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-large;
+}
+
+h2 {
+    font-size: variables.$font-size-h2;
+    font-family: variables.$font-family-headings; // Usa la variable de fuente para encabezados
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-large;
+}
+
+h3 {
+    font-size: variables.$font-size-h3;
+    font-family: variables.$font-family-headings; // También usa la fuente de encabezados para h3
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-medium;
+}
+
+// Estilo general para párrafos
+p {
+    margin-bottom: variables.$spacing-medium; // Añade un margen inferior para separar párrafos
+}

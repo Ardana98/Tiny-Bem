@@ -1,0 +1,40 @@
+// assets/scss/abstracts/_variables.scss
+
+// Colores
+$color-light-beige: #d5cfc3;
+$color-dark-gray: #33321A;
+$color-medium-gray: #a1998f;
+$color-very-light-beige: #efede6;
+$color-white-off: #fafaf8;
+
+// Tipografía
+$font-family-base: 'Arial', sans-serif;
+$font-family-headings: 'Helvetica Neue', sans-serif;
+$font-size-base: 1rem;
+$font-size-small: 0.875rem;
+$font-size-medium: 1.125rem;
+$font-size-large: 1.25rem;
+$font-size-h1: 3rem;
+$font-size-h2: 2.25rem;
+$font-size-h3: 1.75rem;
+
+// Espaciado
+$spacing-xx-small: 0.25rem; 
+$spacing-x-small: 0.5rem;   
+$spacing-small: 1rem;    
+$spacing-medium: 1.5rem;      
+$spacing-large: 2rem;     
+$spacing-x-large: 3rem;     
+$spacing-xx-large: 4rem;    
+
+// Otros
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$transition-speed: 0.3s;
+$transition-ease: ease-in-out;
+$shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1); // Añadida, ya que se usa en CSS original
+
+// Breakpoints para diseño responsivo
+$breakpoint-small: 600px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1200px;

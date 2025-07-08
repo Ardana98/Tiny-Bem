@@ -1,0 +1,69 @@
+// assets/scss/sections/_gallery.scss
+
+@use '../abstracts/variables';
+
+/* Bloque: Gallery Section (Galería de Imágenes) */
+.gallery-section {
+    padding: variables.$spacing-xx-large 0;
+    text-align: center;
+    background-color: variables.$color-very-light-beige;
+}
+
+.gallery-section__title {
+    font-family: variables.$font-family-headings;
+    font-size: variables.$font-size-h2;
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-large;
+}
+
+.gallery-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: variables.$spacing-medium;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-section__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: variables.$border-radius-medium;
+    box-shadow: variables.$shadow-light;
+    cursor: pointer;
+    transition: transform variables.$transition-speed variables.$transition-ease;
+}
+
+.gallery-section__item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-section__image {
+    width: 100%;
+    height: 250px; /* Altura fija para las miniaturas */
+    object-fit: cover; /* Recorta la imagen para que cubra el área */
+    display: block;
+}
+
+.gallery-section__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(variables.$color-dark-gray, 0.6);
+    color: variables.$color-white-off;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity variables.$transition-speed variables.$transition-ease;
+}
+
+.gallery-section__item:hover .gallery-section__overlay {
+    opacity: 1;
+}
+
+.gallery-section__text {
+    font-size: variables.$font-size-medium;
+    font-weight: 600;
+}

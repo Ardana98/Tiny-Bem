@@ -1,0 +1,32 @@
+// assets/scss/base/_responsive.scss
+
+@use '../abstracts/variables';
+
+/* ===================================== */
+/* === 6. RESPONSIVIDAD BÁSICA (Media Queries GLOBALES) === */
+/* ===================================== */
+
+@media (max-width: variables.$breakpoint-medium) {
+    /* Ajustes para títulos de sección en móvil (generales) */
+    .about-section__title,
+    .promo-banner__title,
+    .gallery-section__title,
+    .contact-section__title {
+        font-size: variables.$font-size-h2; /* Reduce el tamaño de los títulos en móvil */
+    }
+
+    /* Ajuste para las cards del promo banner (general para esa sección) */
+    .promo-banner__cards-wrapper {
+        flex-direction: column; /* Apila las cards en móvil */
+        align-items: center;
+    }
+
+    .promo-banner__card {
+        max-width: 90%; /* Ajusta el ancho de las cards en móvil */
+    }
+
+    /* Nota: Las reglas de responsividad para header y nav (menú lateral)
+       ya no van aquí. Están dentro de _header.scss y _navigation.scss.
+       Las reglas del footer se han adaptado en _footer.scss.
+    */
+}

@@ -1,0 +1,4 @@
+# Contenido de .gitignore:
+.DS_Store
+assets/**/*.DS_Store
+# Ignora .DS_Store en cualquier subcarpeta de assets

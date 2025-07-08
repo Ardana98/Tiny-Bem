@@ -1,0 +1,60 @@
+// assets/scss/sections/_contact.scss
+
+@use '../abstracts/variables';
+
+/* Bloque: Contact Section (Contacto) */
+.contact-section {
+    padding: variables.$spacing-xx-large 0;
+    background-color: variables.$color-light-beige;
+    text-align: center;
+}
+
+.contact-section__title {
+    font-family: variables.$font-family-headings;
+    font-size: variables.$font-size-h2;
+    color: variables.$color-dark-gray;
+    margin-bottom: variables.$spacing-large;
+}
+
+.contact-section__form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: variables.$color-white-off;
+    padding: variables.$spacing-large;
+    border-radius: variables.$border-radius-medium;
+    box-shadow: variables.$shadow-light;
+    display: flex;
+    flex-direction: column;
+    gap: variables.$spacing-medium;
+}
+
+.contact-section__form-group {
+    text-align: left;
+}
+
+.contact-section__label {
+    display: block;
+    margin-bottom: variables.$spacing-x-small;
+    font-weight: 600;
+    color: variables.$color-dark-gray;
+}
+
+.contact-section__input,
+.contact-section__textarea {
+    width: 100%;
+    padding: variables.$spacing-small;
+    border: 1px solid variables.$color-medium-gray;
+    border-radius: variables.$border-radius-small;
+    font-size: variables.$font-size-base;
+    color: variables.$color-dark-gray;
+}
+
+.contact-section__textarea {
+    min-height: 120px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.contact-section__submit-button {
+    @extend .button !optional; /* Reutiliza los estilos del botón */
+    align-self: flex-end; /* Alinea el botón a la derecha */
+}

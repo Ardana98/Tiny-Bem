@@ -1,0 +1,134 @@
+// assets/scss/components/_gallery-modal.scss
+
+// Importa las variables de abstractas
+@use '../abstracts/variables'; // Importación para acceder a las variables
+
+/* ===================================== */
+/* === ESTILOS DE MODAL (BEM) === */
+/* ===================================== */
+
+/* Bloque: Gallery Modal */
+.gallery-modal {
+    // Nota: 'display: none;' en tu CSS original seguido de 'display: flex;'
+    // puede ser redundante si el control de visibilidad se hace enteramente con
+    // 'opacity' y 'visibility' y la clase --active.
+    // Para iniciar, mantengo estructura original.
+    display: none; /* Asegura que esté oculto por defecto antes de que JS lo muestre */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente oscuro */
+    display: flex; /* Para centrar el contenido del modal */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    opacity: 0; /* Inicialmente transparente */
+    visibility: hidden; /* Inicialmente no visible para clicks */
+    transition: opacity variables.$transition-speed variables.$transition-ease, 
+                visibility variables.$transition-speed variables.$transition-ease;
+}
+
+/* Modificador: Activo (visible) */
+.gallery-modal--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gallery-modal__content {
+    background-color: variables.$color-white-off;
+    padding: variables.$spacing-large;
+    border-radius: variables.$border-radius-medium;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto; /* Permite scroll si el contenido es demasiado grande */
+    position: relative; /* Para posicionar el botón de cierre */
+    box-shadow: variables.$shadow-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-modal__close {
+    position: absolute;
+    top: variables.$spacing-small;
+    right: variables.$spacing-small;
+    background: none;
+    border: none;
+    font-size: variables.$font-size-h2; /* Tamaño grande para el ícono de cierre */
+    color: variables.$color-dark-gray;
+    cursor: pointer;
+    line-height: 1;
+    padding: variables.$spacing-x-small;
+    transition: color 0.2s ease;
+}
+
+.gallery-modal__close:hover {
+    color: variables.$color-medium-gray;
+}
+
+.gallery-modal__image {
+    max-width: 100%;
+    height: auto;
+    max-height: 60vh; /* Altura máxima relativa al viewport */
+    object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortar */
+    margin-bottom: variables.$spacing-medium;
+}
+
+.gallery-modal__controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 variables.$spacing-small;
+    margin-bottom: variables.$spacing-medium;
+}
+
+.gallery-modal__prev,
+.gallery-modal__next {
+    background-color: variables.$color-dark-gray;
+    color: variables.$color-white-off;
+    border: none;
+    border-radius: 50%; /* Botones circulares */
+    width: 40px;
+    height: 40px;
+    font-size: variables.$font-size-large;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color variables.$transition-speed variables.$transition-ease;
+}
+
+.gallery-modal__prev:hover,
+.gallery-modal__next:hover {
+    background-color: #55542C; /* Color más oscuro al pasar el ratón */
+}
+
+.gallery-modal__thumbnail-list {
+    display: flex;
+    gap: variables.$spacing-small;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: variables.$spacing-small;
+}
+
+.gallery-modal__thumbnail-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: variables.$border-radius-small;
+    transition: border-color variables.$transition-speed variables.$transition-ease, transform 0.2s ease;
+}
+
+/* Modificador: Miniatura seleccionada */
+.gallery-modal__thumbnail-img--selected {
+    border-color: variables.$color-dark-gray;
+    transform: scale(1.05);
+}
+
+.gallery-modal__thumbnail-img:hover {
+    border-color: variables.$color-medium-gray;
+}
